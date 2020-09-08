@@ -10,6 +10,10 @@ namespace _2020_09_08
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine();
+            
+            Console.ReadKey();
         }
     }
 }
