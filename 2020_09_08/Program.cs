@@ -167,6 +167,9 @@ namespace _2020_09_08
             if (ujjatek.ToLower() == "nem")
             {
                 Console.Clear();
+                Console.WriteLine("A fájlok közt van a statisztika");
+                Console.ReadKey();
+                Console.Clear();
                 string vege = "\n Kilépéshez nyomj entert.";
                 Console.Write("\n \t {0,110}",vege);
             }
