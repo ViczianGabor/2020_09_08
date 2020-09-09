@@ -12,8 +12,8 @@ namespace _2020_09_08
             static int dont=0;
             static int nyert=0;
             static int veszt=0;
-
-
+            static string jatekosValasz;
+            static string[] lehetoseg = new string[] { "Kő", "Papír", "Olló" };
 
 
 
@@ -31,100 +31,19 @@ namespace _2020_09_08
             Console.Clear();
 
             Console.ForegroundColor = ConsoleColor.Green;
-            string jatekosValasz;
+            
 
             Console.Write("\n \n Válassz a 3 lehetőség közül: Kő, Papír Olló:      ");
             jatekosValasz = Console.ReadLine();
             Console.Clear();
             Random vel = new Random();
-            string[] lehetoseg = new string[] { "Kő", "Papír", "Olló" };
+            
             int gepValaszt = vel.Next(0, 3);
             Console.ForegroundColor = ConsoleColor.Black;
 
 
             Console.WriteLine("\n");
-            if (gepValaszt == 0 && jatekosValasz.ToLower() == "kő")
-            {
-                Console.WriteLine("\n");
 
-                Console.BackgroundColor = ConsoleColor.Gray;
-                Console.Clear();
-                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gepValaszt]);
-                Console.WriteLine("\t \t \t \t \t \t Döntetlen.");
-                dont++;
-            }
-            if (gepValaszt == 0 && jatekosValasz.ToLower() == "papír")
-            {
-
-                Console.BackgroundColor = ConsoleColor.DarkGreen;
-                Console.Clear();
-                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gepValaszt]);
-                Console.WriteLine("\n \n \n \t \t \t \t \t \t Te nyertél!");
-                nyert++;
-            }
-            if (gepValaszt == 0 && jatekosValasz.ToLower() == "olló")
-            {
-                Console.WriteLine("\n");
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.Clear();
-                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gepValaszt]);
-                Console.WriteLine("\n \n \n \t \t \t \t \t \t Vesztettél!");
-                veszt++;
-            }
-            if (gepValaszt == 1 && jatekosValasz.ToLower() == "kő")
-            {
-                Console.WriteLine("\n");
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.Clear();
-                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gepValaszt]);
-                Console.WriteLine("\n \n \n \t \t \t \t \t \t Vesztettél!");
-                veszt++;
-            }
-            if (gepValaszt == 1 && jatekosValasz.ToLower() == "papír")
-            {
-                Console.WriteLine("\n");
-                Console.BackgroundColor = ConsoleColor.Gray;
-                Console.Clear();
-                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gepValaszt]);
-                Console.WriteLine("\n \n \n \t \t \t \t \t \t Döntetlen.");
-                dont++;
-            }
-            if (gepValaszt == 1 && jatekosValasz.ToLower() == "olló")
-            {
-                Console.WriteLine("\n");
-                Console.BackgroundColor = ConsoleColor.DarkGreen;
-                Console.Clear();
-                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gepValaszt]);
-                Console.WriteLine("\n \n \n \t \t \t \t \t \t Te nyertél!");
-                nyert++;
-            }
-            if (gepValaszt == 2 && jatekosValasz.ToLower() == "kő")
-            {
-                Console.WriteLine("\n");
-                Console.BackgroundColor = ConsoleColor.DarkGreen;
-                Console.Clear();
-                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gepValaszt]);
-                Console.WriteLine("\n \n \n \t \t \t \t \t \t Te nyertél!");
-                nyert++;
-            }
-            if (gepValaszt == 2 && jatekosValasz.ToLower() == "papír")
-            {
-                Console.WriteLine("\n");
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.Clear();
-                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gepValaszt]);
-                Console.WriteLine("\n \n \n \t \t \t \t \t \t Vesztettél!");
-                veszt++;
-            }
-            if (gepValaszt == 2 && jatekosValasz.ToLower() == "olló")
-            {
-                Console.WriteLine("\n");
-                Console.BackgroundColor = ConsoleColor.Gray;
-                Console.Clear();
-                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gepValaszt]);
-                Console.WriteLine("\n \n \n \t \t \t \t \t \t Döntetlen.");
-                dont++;
-            }
             Console.ReadKey();
             Console.Clear();
             Console.ResetColor();
@@ -134,13 +53,131 @@ namespace _2020_09_08
             
 
         }
+
+        static void embernyer(int gep, int ember)
+        {
+            if (gep == 0 && ember.ToLower() == "kő")
+            {
+                Console.WriteLine("\n");
+
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.Clear();
+                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gep]);
+                Console.WriteLine("\t \t \t \t \t \t Döntetlen.");
+                dont++;
+                return 0;
+            }
+            else if (gep == 0 && ember.ToLower() == "papír")
+            {
+
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.Clear();
+                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gep]);
+                Console.WriteLine("\n \n \n \t \t \t \t \t \t Te nyertél!");
+                nyert++;
+                return 2;
+            }
+            else if (gep == 0 && ember.ToLower() == "olló")
+            {
+                Console.WriteLine("\n");
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.Clear();
+                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gep]);
+                Console.WriteLine("\n \n \n \t \t \t \t \t \t Vesztettél!");
+                veszt++;
+                return 1;
+            }
+            else if (gep == 1 && ember.ToLower() == "kő")
+            {
+                Console.WriteLine("\n");
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.Clear();
+                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gep]);
+                Console.WriteLine("\n \n \n \t \t \t \t \t \t Vesztettél!");
+                veszt++;
+                return 1;
+            }
+            else if (gep == 1 && ember.ToLower() == "papír")
+            {
+                Console.WriteLine("\n");
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.Clear();
+                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gep]);
+                Console.WriteLine("\n \n \n \t \t \t \t \t \t Döntetlen.");
+                dont++;
+                return 0;
+            }
+            else if (gep == 1 && ember.ToLower() == "olló")
+            {
+                Console.WriteLine("\n");
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.Clear();
+                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gep]);
+                Console.WriteLine("\n \n \n \t \t \t \t \t \t Te nyertél!");
+                nyert++;
+                return 2;
+            }
+            else if (gep == 2 && ember.ToLower() == "kő")
+            {
+                Console.WriteLine("\n");
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.Clear();
+                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gep]);
+                Console.WriteLine("\n \n \n \t \t \t \t \t \t Te nyertél!");
+                nyert++;
+                return 2;
+            }
+            else if (gep == 2 && ember.ToLower() == "papír")
+            {
+                Console.WriteLine("\n");
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.Clear();
+                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gep]);
+                Console.WriteLine("\n \n \n \t \t \t \t \t \t Vesztettél!");
+                veszt++;
+                return 1;
+            }
+            else if (gep == 2 && ember.ToLower() == "olló")
+            {
+                Console.WriteLine("\n");
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.Clear();
+                Console.WriteLine("\n Gép választása: {0}", lehetoseg[gep]);
+                Console.WriteLine("\n \n \n \t \t \t \t \t \t Döntetlen.");
+                dont++;
+                return 0;
+            }
+
+
+
+        }
+
+        static void eredmenyKiiras(int gep, int ember)
+        {
+            switch (embernyer(jatekosValasz, lehetoseg))
+            {
+                case 0:
+                    Console.WriteLine("Döntetlen");
+                    break;
+                case 1:
+                    Console.WriteLine("Skynet nyert");
+                    break;
+                case 2:
+                    Console.WriteLine("jatekos nyert");
+                    break;
+            }
+
+
+
+
+        }
         static void Main(string[] args)
         {
 
 
 
 
-            
+            eredmenyKiiras(lehetoseg, jatekosValasz);
                 string ujjatek = "igen";
                 string ujkezdet;
             
@@ -160,21 +197,24 @@ namespace _2020_09_08
                 ujkezdet = "Play Again? (igen/nem)";
                 Console.Write("\n {0,70} \n \n \t \t \t \t \t \t \t", ujkezdet);
                 ujjatek = Console.ReadLine();
-           
-            }
 
-            
+
+                
+            }
+            embernyer();
+
+
             if (ujjatek.ToLower() == "nem")
             {
                 Console.Clear();
-                Console.WriteLine("A fájlok közt van a statisztika");
+                Console.WriteLine("\n A fájlok közt van a statisztika");
                 Console.ReadKey();
                 Console.Clear();
-                string vege = "\n Kilépéshez nyomj entert.";
-                Console.Write("\n \t {0,110}",vege);
+                string vege = "Kilépéshez nyomj entert.";
+                Console.Write("\n \t {0,65}",vege);
             }
 
-
+            
 
 
 
