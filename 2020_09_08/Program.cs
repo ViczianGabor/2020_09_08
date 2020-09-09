@@ -54,7 +54,7 @@ namespace _2020_09_08
 
         }
 
-        static void embernyer(int gep, int ember)
+        static int embernyer(int gep, string ember)
         {
             if (gep == 0 && ember.ToLower() == "kő")
             {
@@ -154,6 +154,7 @@ namespace _2020_09_08
 
         static void eredmenyKiiras(int gep, int ember)
         {
+
             switch (embernyer(jatekosValasz, lehetoseg))
             {
                 case 0:
@@ -201,7 +202,7 @@ namespace _2020_09_08
 
                 
             }
-            embernyer();
+            
 
 
             if (ujjatek.ToLower() == "nem")
